@@ -10,6 +10,8 @@ void argChecker(int argc, char *argv[]);
 
 char getAnswer(void);
 
+int compareAnswer(char c);
+
 void showHelp(void);
 
 /* globals */
@@ -36,12 +38,7 @@ int main (int argc, char *argv[]){
         char c = getAnswer();
 
 	/* Compare Input */
-	int ret;
-	if (c == 'y') {
-		ret = 0;
-	} else {
-		ret = 1;
-	}
+	int ret = compareAnswer(c);
 
 	/*return option selected*/
 	return ret;
@@ -58,7 +55,7 @@ void argChecker(int argc, char *argv[]){
 			case 'o':
 				optionList[options++] = tolower(optarg[0]);
 				break;
-			case 'b':
+			case 'd':
 				defaultOpt = tolower(optarg[0]);
 				break;
 			case 'h':
@@ -67,6 +64,14 @@ void argChecker(int argc, char *argv[]){
 				showHelp();
       		}
 	}
+	if (options == 0){
+		optionList[0] = 'y';
+		optionList[1] = 'n';
+		options = 2;
+	}
+	if (defaultOpt == '\0') defaultOpt = optionList[0];
+	printf("Options: %s %i ",optionList,options);
+	printf("Default: %c\n",defaultOpt);
 }
 
 char getAnswer(void){
@@ -86,8 +91,23 @@ char getAnswer(void){
 	return result;
 }
 
+int compareAnswer(char c){
+	/* check if need default */
+	if (c == '\n') c = defaultOpt;
+
+	/* compare against each char */
+	int i;
+	for(i = 0; 1; i++){
+		if (c == optionList[i])	{
+			break;
+		}
+		if (options == i) exit(-1);
+	}
+	return i;
+}
+
 void showHelp(void){
 	/* TODO: add help text */
 	printf("HELPTEXT");
-	exit(-1);
+	exit(-2);
 }

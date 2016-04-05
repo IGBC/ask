@@ -32,7 +32,7 @@ int main (int argc, char *argv[]){
 	argChecker(argc, argv);
 
 	/*Print Message*/
-	printf("%s: [",message);
+	printf("%s [",message);
 	int i = 0;
 	for(i = 0; i < options; i++){
 		if (optionList[i] != defaultOpt){
@@ -60,7 +60,7 @@ void argChecker(int argc, char *argv[]){
 	while ((c = getopt (argc, argv, "m:ho:d:")) != -1){
 		switch (c){
 			case 'm':
-				message = (char*)malloc(strlen(optarg)); 
+				message = (char*)malloc(strlen(optarg));
 				strcpy(message, optarg);
 			case 'o':
 				optionList[options++] = tolower(optarg[0]);

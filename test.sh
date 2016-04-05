@@ -1,3 +1,5 @@
 #!/bin/sh
-gcc ask.c && ./a.out
-
+if gcc ask.c; then
+	./a.out
+	echo "return: $?"
+fi;

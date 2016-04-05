@@ -32,7 +32,17 @@ int main (int argc, char *argv[]){
 	argChecker(argc, argv);
 
 	/*Print Message*/
-	printf("%s: [y,N]: ",message);
+	printf("%s: [",message);
+	int i = 0;
+	for(i = 0; i < options; i++){
+		if (optionList[i] != defaultOpt){
+			putchar(optionList[i]);
+		} else {
+			putchar(toupper(optionList[i]));
+		}
+		if (i+1 < options) printf("/");
+	}
+	printf("]: ");
 
 	/*Check Input*/
         char c = getAnswer();

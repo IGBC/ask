@@ -62,6 +62,7 @@ void argChecker(int argc, char *argv[]){
 			case 'm':
 				message = (char*)malloc(strlen(optarg));
 				strcpy(message, optarg);
+				break;
 			case 'o':
 				optionList[options++] = tolower(optarg[0]);
 				break;
@@ -80,8 +81,6 @@ void argChecker(int argc, char *argv[]){
 		options = 2;
 	}
 	if (defaultOpt == '\0') defaultOpt = optionList[0];
-	printf("Options: %s %i ",optionList,options);
-	printf("Default: %c\n",defaultOpt);
 }
 
 char getAnswer(void){

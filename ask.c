@@ -33,6 +33,8 @@ int main (int argc, char *argv[]){
 
 	/*Print Message*/
 	printf("%s [",message);
+	free(message);
+	message = NULL;
 	int i = 0;
 	for(i = 0; i < options; i++){
 		if (optionList[i] != defaultOpt){
@@ -60,6 +62,7 @@ void argChecker(int argc, char *argv[]){
 	while ((c = getopt (argc, argv, "m:ho:d:")) != -1){
 		switch (c){
 			case 'm':
+				free(message);
 				message = (char*)malloc(strlen(optarg));
 				strcpy(message, optarg);
 				break;

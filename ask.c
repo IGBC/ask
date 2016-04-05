@@ -27,9 +27,10 @@ char defaultOpt = '\0';
 /* main */
 int main (int argc, char *argv[]){
 	/*Check args*/
+	argChecker(argc, argv);
 
 	/*Print Message*/
-	printf("<MESSAGE>: [y,N]: ");
+	printf("%s: [y,N]: ",message);
 
 	/*Check Input*/
         char c = getAnswer();

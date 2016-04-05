@@ -1,5 +1,5 @@
 #!/bin/sh
 if gcc ask.c; then
-	./a.out
+	./a.out $@
 	echo "return: $?"
 fi;

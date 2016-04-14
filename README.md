@@ -1,6 +1,12 @@
 # ask
 ##### simple utility to ask the user a question during a shell script
 ## Usage:
+`ask -m <message> -d <default option> -o <option1> -o <option2> ...`
+
+Returns number of option selected (0 for first, 1 for second...)
+Returns -1 on invalid selection
+Returns -2 after displaying this help message
+
 ### Options:
  `-o x` add answer `x` to the question (max 1 char)
  
@@ -8,5 +14,7 @@
  
  `-d x` set default answer to `x`
 ## Building:
-Use the test.sh file to build the application with gcc. 
-If you wish to contribute a Makefile please do so, but I personally don't see a point for a single code file.
+This program is built with make and GCC.
+  1. To build run `make`
+  2. Manually copy into /usr/bin (or your prefered path directory)
+  3. Optionally just package the binary with your scripts (It's only about 13K)

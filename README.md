@@ -1,11 +1,21 @@
 # ask
-##### simple utility to ask the user a question during a shell script
+##### Simple utility to ask the user a question during a shell script
 ## Usage:
 `ask -m <message> -d <default option> -o <option1> -o <option2> ...`
 
-Returns number of option selected (0 for first, 1 for second...)
-Returns -1 on invalid selection
-Returns -2 after displaying the help message
+  - Returns number of option selected (0 for first, 1 for second...)
+  - Returns -1 on invalid selection
+  - Returns -2 after displaying the help message
+
+#### Script Usage:
+```
+#!/bin/bash
+if ask -m "are you sure" -o y -o n -d n
+    rm -rf ~/
+else
+    echo "Coward!"
+fi
+```
 
 ### Options:
  `-o x` add answer `x` to the question (max 1 char)

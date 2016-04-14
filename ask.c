@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
+#include "help.h"
 
 /* functions */
 
@@ -120,6 +121,6 @@ int compareAnswer(char c){
 
 void showHelp(void){
 	/* TODO: add help text */
-	printf("HELPTEXT");
+	printf(HELPTEXT);
 	exit(-2);
 }

@@ -5,7 +5,7 @@
 
 Returns number of option selected (0 for first, 1 for second...)
 Returns -1 on invalid selection
-Returns -2 after displaying this help message
+Returns -2 after displaying the help message
 
 ### Options:
  `-o x` add answer `x` to the question (max 1 char)
@@ -13,6 +13,8 @@ Returns -2 after displaying this help message
  `-m str` set message to `str`
  
  `-d x` set default answer to `x`
+ 
+ `-h` show help message
 ## Building:
 This program is built with make and GCC.
   1. To build run `make`

@@ -1,6 +1,6 @@
 language: C
-install: make
+install: true
 compiler:
   - clang
   - gcc
-script: true
+script: make
